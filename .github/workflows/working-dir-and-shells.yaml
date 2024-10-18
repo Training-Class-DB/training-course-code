@@ -1,9 +1,8 @@
-name:  Working DIres & Shell
+name:  Working Directories & Shell
 on:  [push]
 defaults:
   run:
     shell:  bash
-    # working-directory:  /anything/
 jobs:
   diplay-wd-info:
     runs-on:  ubuntu-latest
@@ -17,21 +16,23 @@ jobs:
           echo $GITHUB_WORKSPACE
       - name:  CHange working directory
         working-directory:  /home/runner 
-        run:  pwd   
+        run:  pwd  
+         
   diplay-wd-info-windows:
     runs-on:  windows-latest
       defaults:
-        run:  pwsh
+        run:  
+          shell:  pwsh
     steps:
       - name:  display working directory & last files
         run:  |
-          pwd
+          Get-Location
           dir
-          echo $env:$GITHUB_SHA
-          echo $env:$GITHUB_REPOSITORY
-          echo $env:$GITHUB_WORKSPACE
+          echo $env:GITHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_WORKSPACE
       - name:  python shell
-        shell:  pythom
+        shell:  python
         run:  |
           import platform
           print(platform.processor())
