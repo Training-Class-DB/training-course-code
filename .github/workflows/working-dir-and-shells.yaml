@@ -17,12 +17,12 @@ jobs:
       - name:  CHange working directory
         working-directory:  /home/runner 
         run:  pwd  
-         
+
   diplay-wd-info-windows:
     runs-on:  windows-latest
-      defaults:
-        run:  
-          shell:  pwsh
+    defaults:
+      run:  
+        shell:  pwsh
     steps:
       - name:  display working directory & last files
         run:  |
