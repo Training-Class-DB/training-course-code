@@ -1,0 +1,18 @@
+name:  Stale Issues & PRs 
+on:
+  schedule:
+    - cron:  "0 14 * * *"   # at 1400 every day of the week - all year long
+#    - cron:  "* * * * *"    #  mins, hrs, day of month, month, day of week   - can do multiple cron lines
+#    - cron:  "0/15 * * * * "  # every 15 mins
+
+
+jobs:
+  stale:
+    runs-on:  ubuntu-latest
+    steps:
+      - uses:  actions/stale@v8
+        with:
+          stale-issue-message:  "This is some message."
+          days-before-stale:  1
+          days-before-close:  5
+
